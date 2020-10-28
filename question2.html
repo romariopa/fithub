@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+
+<body>
+    <script>
+        const text = "<a><b><c><d><e><f></f></e></d></c></b></a>";
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(text, "text/xml");
+        console.log(xmlDoc.getElementsByTagName('parsererror').length ?
+            (new XMLSerializer()).serializeToString(xmlDoc) : xmlDoc);
+    </script>
+</body>
+
+</html>

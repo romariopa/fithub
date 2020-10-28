@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+</head>
+
+<body>
+    <script>
+        function addSpace(indice) {
+            let xml = "";
+            for (let index = 0; index < indice; index++) {
+                xml = xml + "\t";
+            }
+            return xml;
+        }
+        function recursive(array, indice, sw) {
+            let xml;
+            if (indice < 0) return;
+            if (indice === array.length) {
+                sw = true;
+                indice -= 1;
+                xml = addSpace(indice);
+                xml += `</${array[indice]}>`;
+            }
+            xml = addSpace(indice);
+            if (!sw) {
+                xml += `<${array[indice]}>`;
+                console.log(xml);
+                recursive(array, indice + 1, sw)
+            } else if (sw && indice >= 0) {
+                xml += `</${array[indice]}>`;
+                console.log(xml);
+                recursive(array, indice - 1, sw)
+            }
+        }
+        recursive([1, 2, 3, 4, 5, 6], 0)
+    </script>
+</body>
+
+</html>
